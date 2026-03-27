@@ -2,14 +2,14 @@ package com.physics;
 
 import java.util.ArrayList;
 
-public class physicsHelper {
+public class PhysicsHelper {
 
     double x;
     double y;
     double xVelocity;
     double yVelocity;
 
-    public physicsHelper(double x, double y, double XVelocity, double YVelocity){
+    public PhysicsHelper(double x, double y, double XVelocity, double YVelocity){
         this.x = x;
         this.y = y;
         this.xVelocity = XVelocity;
