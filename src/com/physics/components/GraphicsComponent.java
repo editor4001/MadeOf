@@ -1,7 +1,6 @@
 package com.physics.components;
 
-import com.physics.Object;
-import com.physics.components.Component;
+import com.physics.PhysicsObject;
 
 import java.awt.Graphics;
 
@@ -16,13 +15,13 @@ public class GraphicsComponent implements Component {
     }
 
     @Override
-    public void update(Object object) {
+    public void update(PhysicsObject physicsObject) {
 
     }
 
     @Override
-    public void render(Graphics g, Object object) {
+    public void render(Graphics g, PhysicsObject physicsObject) {
         g.setColor(new java.awt.Color(colorRGB));
-        g.fillOval((int) object.getInternalX(), (int) object.getInternalY(), size, size);
+        g.fillOval((int) physicsObject.getInternalX(), (int) physicsObject.getInternalY(), size, size);
     }
 }

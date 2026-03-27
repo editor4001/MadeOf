@@ -1,12 +1,12 @@
 import com.physics.ElementsHandler;
-import com.physics.Object;
+import com.physics.PhysicsObject;
 import com.physics.components.GraphicsComponent;
 import com.physics.components.GravityComponent;
 
 import javax.swing.*;
 
 public class Main {
-    public static Object obj = new Object(true,false);
+    public static PhysicsObject obj = new PhysicsObject(true,false);
 
     public static float counter = 0;
 

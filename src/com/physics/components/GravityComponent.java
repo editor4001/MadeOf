@@ -1,7 +1,7 @@
 package com.physics.components;
 
 import java.awt.*;
-import com.physics.Object;
+import com.physics.PhysicsObject;
 
 public class GravityComponent implements Component {
 
@@ -13,12 +13,12 @@ public class GravityComponent implements Component {
 
 
     @Override
-    public void update(Object object) {
-        object.setInternalYVelocity(object.getInternalYVelocity() + gravity);
+    public void update(PhysicsObject physicsObject) {
+        physicsObject.setInternalYVelocity(physicsObject.getInternalYVelocity() + gravity);
     }
 
     @Override
-    public void render(Graphics g, Object object) {
+    public void render(Graphics g, PhysicsObject physicsObject) {
 
     }
 }

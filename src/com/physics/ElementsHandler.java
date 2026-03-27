@@ -6,43 +6,54 @@ import java.util.ArrayList;
 
 public class ElementsHandler extends JPanel {
 
-    protected static ArrayList<Object> objects = new ArrayList<>();
-    protected static ArrayList<Object> PreRenderObjects = new ArrayList<>();
+    protected static ArrayList<PhysicsObject> physicsObjects = new ArrayList<>();
+    protected static ArrayList<PhysicsObject> preRenderPhysicsObjects = new ArrayList<>();
+    private long lastTime;
+    private long currentTime;
+    private double deltaTime;
 
     public ElementsHandler() {
+        lastTime = System.nanoTime();
+
         Timer timer = new Timer(16, e -> updateObjects());
         timer.start();
     }
 
     private void updateObjects() {
-        for (Object o : objects) {
+        currentTime = System.nanoTime();
+
+        double deltaTime = (currentTime - lastTime) / 1_000_000_000.0;
+
+        lastTime = currentTime;
+
+        for (PhysicsObject o : physicsObjects) {
             o.getUpdate();
         }
         repaint();
     }
 
-    public static void addObject(Object object) {
-        objects.add(object);
-        if (object.isPreRender()){
-            PreRenderObjects.add(object);
+    public static void addObject(PhysicsObject physicsObject) {
+        physicsObjects.add(physicsObject);
+        if (physicsObject.isPreRender()){
+            preRenderPhysicsObjects.add(physicsObject);
         }
     }
 
-    public static void removeObject(Object object) {
-        objects.remove(object);
+    public static void removeObject(PhysicsObject physicsObject) {
+        physicsObjects.remove(physicsObject);
     }
 
-    public static ArrayList<Object> getObjects() {
-        return objects;
+    public static ArrayList<PhysicsObject> getObjects() {
+        return physicsObjects;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Object o : objects) {
+        for (PhysicsObject o : physicsObjects) {
             o.render(g);
         }
-        for (Object o : PreRenderObjects) {
+        for (PhysicsObject o : preRenderPhysicsObjects) {
             int drawX = (int) o.getInternalX();
             int drawY = (int) o.getInternalY();
             g.fillOval(drawX, drawY, 20, 20);

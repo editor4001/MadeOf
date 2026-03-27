@@ -3,7 +3,7 @@ package com.physics;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Object {
+public class PhysicsObject {
 
     private boolean canHavePhysics;
     private double internalX;
@@ -14,7 +14,7 @@ public class Object {
 
     protected static ArrayList<com.physics.components.Component> components = new ArrayList<>();
 
-    public Object(boolean canHavePhysics,boolean isPreRender) {
+    public PhysicsObject(boolean canHavePhysics, boolean isPreRender) {
         this.canHavePhysics = canHavePhysics;
         this.isPreRender = isPreRender;
     }
