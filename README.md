@@ -29,6 +29,11 @@ They allow you to add specific behaviors to an object, such as:
 
 * Gravity
 * Rendering
+---
+#### beta
+* friction
+* restitution
+---
 * (future: collisions, forces, etc.)
 
 Each object can have **multiple components**, making the engine highly customizable.
@@ -93,7 +98,6 @@ public class Main {
 
 ## 🛣️ Roadmap (Planned Features)
 
-* Collision system
 * Multiple shapes (not only circles)
 * Improved rendering system
 * Forces & interactions
